@@ -23,10 +23,10 @@ export default function About() {
 
         <p className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-prose">
           I started studying on my own out of pure curiosity, and since then,
-          I've been captivated by the world of programming. I love that it's a
-          constantly evolving field, which motivates me to keep growing and
-          developing as a professional. Currently, I'm pursuing a degree in
-          Computer Programming at UNSAM. Take a look around!
+          I&apos;ve been captivated by the world of programming. I love that
+          it&apos;s a constantly evolving field, which motivates me to keep
+          growing and developing as a professional. Currently, I&apos;m pursuing
+          a degree in Computer Programming at UNSAM. Take a look around!
         </p>
       </div>
       <div className="pt-12">
