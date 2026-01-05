@@ -8,7 +8,7 @@ export default function Projects() {
         Projects
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

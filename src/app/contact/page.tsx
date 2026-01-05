@@ -1,5 +1,6 @@
 "use client";
 import FancyButton from "@/components/FancyButton";
+import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -97,8 +98,20 @@ export default function Contact() {
             </pre>
           </div>
           <div className="flex w-full pt-12 justify-around">
-            <FaGithub className="w-20 h-20 bg-[#0b1522]/70 text-cyan-300 rounded-full shadow-[0_0_25px_rgba(0,255,255,0.4)] border-2 border-cyan-500/40 backdrop-blur-md hover:cursor-pointer hover:scale-105 transition ease-in-out" />
-            <FaLinkedin className="w-20 h-20 bg-[#0b1522]/70 text-cyan-300 rounded-xl shadow-[0_0_25px_rgba(0,255,255,0.4)] border-2 border-cyan-500/40 backdrop-blur-md hover:cursor-pointer hover:scale-105 transition ease-in-out" />
+            <Link
+              href="https://github.com/IvanGentta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="w-20 h-20 bg-[#0b1522]/70 text-cyan-300 rounded-full shadow-[0_0_25px_rgba(0,255,255,0.4)] border-2 border-cyan-500/40 backdrop-blur-md hover:cursor-pointer hover:scale-105 transition ease-in-out" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/ivan-gentta/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="w-20 h-20 bg-[#0b1522]/70 text-cyan-300 rounded-xl shadow-[0_0_25px_rgba(0,255,255,0.4)] border-2 border-cyan-500/40 backdrop-blur-md hover:cursor-pointer hover:scale-105 transition ease-in-out" />
+            </Link>
           </div>
         </div>
       </div>

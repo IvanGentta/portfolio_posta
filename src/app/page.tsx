@@ -1,3 +1,4 @@
+import NavBar from "@/components/NavBar";
 import About from "./about/page";
 import Contact from "./contact/page";
 import Inicio from "./inicio/page";
@@ -20,19 +21,30 @@ export default function Home() {
         }}
       />
 
-      <section className="min-h-screen flex items-center">
+      <nav
+        id="#inicio"
+        className="fixed top-4 left-0 w-full z-50 flex justify-center"
+      >
+        <div className="w-full max-w-6xl px-6 md:px-20">
+          <div className="">
+            <NavBar />
+          </div>
+        </div>
+      </nav>
+
+      <section id="inicio" className="min-h-screen flex items-center">
         <Inicio />
       </section>
 
-      <section className="min-h-screen flex items-center">
+      <section id="about" className="min-h-screen flex items-center">
         <About />
       </section>
 
-      <section className="min-h-screen flex items-center">
+      <section id="projects" className="min-h-screen flex items-center">
         <Projects />
       </section>
 
-      <section className="min-h-screen flex items-center">
+      <section id="contact" className="min-h-screen flex items-center">
         <Contact />
       </section>
     </div>

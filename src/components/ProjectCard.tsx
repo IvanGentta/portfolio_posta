@@ -11,7 +11,10 @@ type Props = {
 export default function ProjectCard({ project }: Props) {
   return (
     <div className="max-w-lg w-full">
-      <div className="group relative rounded-xl overflow-hidden border-2 border-primary shadow-[1px_1px_20px_rgba(140,3,153,0.85)]">
+      <div
+        className="group relative h-[300px] md:h-[320px] lg:h-[360px] rounded-xl 
+      overflow-hidden border-2 border-primary shadow-[1px_1px_20px_rgba(140,3,153,0.85)]"
+      >
         <Image
           src={project.image}
           alt={project.title}
@@ -20,10 +23,10 @@ export default function ProjectCard({ project }: Props) {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute  inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {/* Content */}
-        <div className="relative z-10 p-8 opacity-0 translate-y-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <div className="relative z-10 h-full p-8 opacity-0 translate-y-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           <h2 className="text-2xl font-semibold mb-2 text-center">
             {project.title}
           </h2>
