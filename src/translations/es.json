@@ -1,5 +1,24 @@
 {
   "navAbout": "Sobre mí",
   "navProjects": "Proyectos",
-  "navContact": "Contacto"
+  "navContact": "Contacto",
+
+  "welcome": "Bienvenidos a Portfolio de programador!",
+
+  "aboutDesc": "Empecé estudiando por mi cuenta de pura curiosidad y desde entonces quedé cautivado por el mundo de la programación. Me encanta que sea un campo que esté constantemente evolucionando, lo cual me motiva a seguir creciendo y formandome como profesional. Actualmente me encuentro cursando la Tecnicatura en Programación Informática en la UNSAM!",
+  "skills": "Conocimientos",
+
+  "letsConnect": "Conectemos! Charlemos!",
+  "name": "Nombre",
+  "message": "Mensaje",
+  "sendBtn": "Enviar",
+
+  "sending": "Enviando...",
+  "statusSent": "Enviado correctamente!",
+  "statusError": "Error al enviar :(",
+
+  "descWeather": "Aplicación web para saber la temperatura en cualquier parte del mundo a través de una API externa",
+  "descGoogle": "Clon del buscador de Google donde se puede buscar lo que sea a través de una API Externa",
+  "descChat": "Aplicación real de chat con login y autenticación",
+  "descNotes": "Aplicación FullStack con base de datos persistente para crear notas, etiquetarlas, archivarlas y filtrarlas"
 }

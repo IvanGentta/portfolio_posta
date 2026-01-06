@@ -1,12 +1,15 @@
 "use client";
 import Carrousel from "@/components/Carrousel";
+import { useTranslate } from "@/context/LanguageContext";
 import Image from "next/image";
 
 export default function About() {
+  const { t } = useTranslate();
+
   return (
     <section className="w-full max-w-6xl mx-auto px-6">
       <h1 className="font-titulo text-2xl mb-6 underline text-contrast_cyan font-bold">
-        Sobre mí
+        {t("navAbout")}
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -22,16 +25,12 @@ export default function About() {
         </div>
 
         <p className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-prose">
-          I started studying on my own out of pure curiosity, and since then,
-          I&apos;ve been captivated by the world of programming. I love that
-          it&apos;s a constantly evolving field, which motivates me to keep
-          growing and developing as a professional. Currently, I&apos;m pursuing
-          a degree in Computer Programming at UNSAM. Take a look around!
+          {t("aboutDesc")}
         </p>
       </div>
       <div className="pt-12">
         <h1 className="font-titulo text-2xl underline text-contrast_cyan font-bold">
-          Skills
+          {t("skills")}
         </h1>
         <Carrousel />
       </div>

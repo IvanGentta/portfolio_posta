@@ -1,14 +1,17 @@
+"use client";
 import Image from "next/image";
 import FancyButton from "./FancyButton";
 import TechBadge from "./TechChip";
 import { Project } from "@/data/projectsData";
 import Link from "next/link";
+import { useTranslate } from "@/context/LanguageContext";
 
 type Props = {
   project: Project;
 };
 
 export default function ProjectCard({ project }: Props) {
+  const { t } = useTranslate();
   return (
     <div className="max-w-lg w-full">
       <div
@@ -31,7 +34,7 @@ export default function ProjectCard({ project }: Props) {
             {project.title}
           </h2>
 
-          <p className="text-sm text-gray-200 mb-3">{project.description}</p>
+          <p className="text-sm text-gray-200 mb-3">{t(project.description)}</p>
 
           <div className="mb-4">
             <h3 className="text-xs font-semibold text-gray-300 mb-2 underline underline-offset-3">

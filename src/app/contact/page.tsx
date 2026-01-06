@@ -1,5 +1,6 @@
 "use client";
 import FancyButton from "@/components/FancyButton";
+import { useTranslate } from "@/context/LanguageContext";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -7,10 +8,11 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const { t } = useTranslate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Enviando...");
+    setStatus(`${t("sending")}`);
 
     const res = await fetch("/api/send-email", {
       method: "POST",
@@ -19,33 +21,30 @@ export default function Contact() {
     });
 
     if (res.ok) {
-      setStatus("✅ Enviado correctamente");
+      setStatus(`${t("statusSent")}`);
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setStatus(""), 5000);
     } else {
-      setStatus("❌ Error al enviar");
+      setStatus(`${t("statusError")}`);
       setTimeout(() => setStatus(""), 5000);
     }
   };
 
   return (
     <div className="w-full flex flex-col items-center">
-      {/* GRID PRINCIPAL: centra items en movil, los alinea al inicio en lg */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 justify-items-center">
-        {/* TÍTULO: centrado en móvil, alineado a la izquierda en lg */}
         <div className="flex flex-col items-start w-full max-w-lg">
           <h1 className="font-titulo text-2xl mb-4 md:pl-[24px] underline text-contrast_cyan font-bold">
-            Contacto
+            {t("navContact")}
           </h1>
 
-          {/* FORMULARIO (izquierda en lg). max-w-lg mantiene ancho fijo y, gracias a justify-items-center, se centra en móvil */}
           <div className="rounded-xl bg-[#050e1d] max-w-lg w-full shadow-[1px_1px_20px_rgba(140,3,153,0.85)] p-6 border-primary border">
-            <h3 className="pb-2 pl-[1px] text-lg">Conectemos! Charlemos!</h3>
+            <h3 className="pb-2 pl-[1px] text-lg">{t("letsConnect")}</h3>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
-                placeholder="Name"
+                placeholder={t("name")}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="p-2 rounded bg-gray-800 text-white border-2 border-contrast_cyan/20 
@@ -64,7 +63,7 @@ export default function Contact() {
               />
 
               <textarea
-                placeholder="Message"
+                placeholder={t("message")}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="p-2 rounded bg-gray-800 text-white border-2 border-contrast_cyan/20 
@@ -75,7 +74,7 @@ export default function Contact() {
               <div className="w-full flex justify-center">
                 <button type="submit" className="w-full">
                   <FancyButton className="w-40" glowColor="#00ffff">
-                    Enviar
+                    {t("sendBtn")}
                   </FancyButton>
                 </button>
               </div>
