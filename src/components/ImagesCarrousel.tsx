@@ -3,7 +3,7 @@
 import { useRef } from "react";
 
 type Image = {
-  id: string;
+  id: number;
   image_url: string;
   position: number;
 };
