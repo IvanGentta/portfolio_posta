@@ -3,6 +3,7 @@ import About from "./about/page";
 import Contact from "./contact/page";
 import Inicio from "./inicio/page";
 import Projects from "./projects/page";
+import News from "./news/page";
 
 export default function Home() {
   return (
@@ -38,6 +39,10 @@ export default function Home() {
 
       <section id="about" className="min-h-screen flex items-center">
         <About />
+      </section>
+
+      <section id="news" className="min-h-screen flex items-center">
+        <News />
       </section>
 
       <section id="projects" className="min-h-screen flex items-center">

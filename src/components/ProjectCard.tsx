@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import FancyButton from "./FancyButton";
-import TechBadge from "./TechChip";
+import Chip from "./Chip";
 import { Project } from "@/data/projectsData";
 import Link from "next/link";
 import { useTranslate } from "@/context/LanguageContext";
@@ -43,7 +43,7 @@ export default function ProjectCard({ project }: Props) {
 
             <ul className="flex flex-wrap gap-2">
               {project.techs.map((tech) => (
-                <TechBadge key={tech} name={tech} />
+                <Chip key={tech} name={tech} />
               ))}
             </ul>
           </div>

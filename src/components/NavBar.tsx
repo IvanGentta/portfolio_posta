@@ -79,6 +79,9 @@ export default function NavBar() {
             <Link href="#about">
               <li>{t("navAbout")}</li>
             </Link>
+            <Link href="#news">
+              <li>{t("navNews")}</li>
+            </Link>
             <Link href="#projects">
               <li>{t("navProjects")}</li>
             </Link>
@@ -110,6 +113,9 @@ export default function NavBar() {
         <ul className="flex flex-col space-y-6 text-lg text-right mr-1">
           <Link href="#about">
             <li onClick={() => setOpen(false)}>{t("navAbout")}</li>
+          </Link>
+          <Link href="#news">
+            <li onClick={() => setOpen(false)}>{t("navNews")}</li>
           </Link>
           <Link href="#projects">
             <li onClick={() => setOpen(false)}>{t("navProjects")}</li>
