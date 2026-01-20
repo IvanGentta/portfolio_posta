@@ -2,6 +2,7 @@
 
 import { useTranslate } from "@/context/LanguageContext";
 import NewsCard from "./NewsCard";
+import { useState } from "react";
 
 type Tag = {
   id: number;
@@ -35,6 +36,22 @@ type Props = {
 
 export default function NewsClient({ data }: Props) {
   const { t } = useTranslate();
+  const [selectedTag, setSelectedTag] = useState<string>("all");
+
+  const allTags: Tag[] = Array.from(
+    new Map(
+      data
+        .flatMap((news) => news.news_tags?.map((nt: any) => nt.tags) ?? [])
+        .map((tag) => [tag.id, tag])
+    ).values()
+  );
+
+  const filteredNews =
+    selectedTag === "all"
+      ? data
+      : data.filter((news) =>
+          news.news_tags?.some((nt: any) => String(nt.tags.id) === selectedTag)
+        );
 
   return (
     <section className="w-full mb-12">
@@ -42,8 +59,26 @@ export default function NewsClient({ data }: Props) {
         {t("navNews")}
       </h1>
 
+      <div className="mb-6 flex md:pl-6 items-center">
+        <h3 className="pr-2 text-2xl underline">{t("toFilter")}</h3>
+        <select
+          value={selectedTag}
+          onChange={(e) => setSelectedTag(e.target.value)}
+          className="w-56 rounded-lg border border-primary/40 bg-black/40 backdrop-blur
+          py-2 px-2 text-md focus:outline-none focus:ring-2 focus:ring-primary "
+        >
+          <option value="all">{t("allCategories")}</option>
+
+          {allTags.map((tag) => (
+            <option key={tag.id} value={String(tag.id)}>
+              {tag.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
-        {data.map((item) => (
+        {filteredNews.map((item) => (
           <NewsCard key={item.id} news={item} />
         ))}
       </ul>
