@@ -30,18 +30,14 @@ type News = {
   news_images?: NewsImage[] | null;
 };
 
-type Props = {
-  data: News[];
-};
-
-export default function NewsClient({ data }: Props) {
+export default function NewsClient({ data }: { data: News[] }) {
   const { t } = useTranslate();
   const [selectedTag, setSelectedTag] = useState<string>("all");
 
   const allTags: Tag[] = Array.from(
     new Map(
       data
-        .flatMap((news) => news.news_tags?.map((nt: any) => nt.tags) ?? [])
+        .flatMap((news) => news.news_tags?.flatMap((nt) => nt.tags) ?? [])
         .map((tag) => [tag.id, tag])
     ).values()
   );
@@ -50,7 +46,11 @@ export default function NewsClient({ data }: Props) {
     selectedTag === "all"
       ? data
       : data.filter((news) =>
-          news.news_tags?.some((nt: any) => String(nt.tags.id) === selectedTag)
+          news.news_tags?.some((nt) => {
+            const tagsArray = Array.isArray(nt.tags) ? nt.tags : [nt.tags];
+
+            return tagsArray.some((tag) => String(tag.id) === selectedTag);
+          })
         );
 
   return (
@@ -65,7 +65,7 @@ export default function NewsClient({ data }: Props) {
           value={selectedTag}
           onChange={(e) => setSelectedTag(e.target.value)}
           className="w-56 rounded-lg border border-primary/40 bg-black/40 backdrop-blur
-          py-2 px-2 text-md focus:outline-none focus:ring-2 focus:ring-primary "
+          py-2 px-2 text-md focus:outline-none focus:ring-2 focus:ring-primary"
         >
           <option value="all">{t("allCategories")}</option>
 
