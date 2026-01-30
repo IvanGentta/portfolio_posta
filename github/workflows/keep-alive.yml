@@ -1,0 +1,15 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: "0 */12 * * *" # cada 12 horas
+  workflow_dispatch: # permite correrlo a mano
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping keep-alive endpoint
+        run: |
+          curl -s https://portfolio-ivangentta.vercel.app/api/keep-alive
