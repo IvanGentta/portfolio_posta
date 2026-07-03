@@ -74,8 +74,10 @@ export default function NewsClient({ data }: { data: News[] }) {
     (_, index) => index + 1,
   );
 
-  useEffect(() => {
-    // Chequeo si es mobile
+  // Función para cambiar de página y scrollear si es mobile
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+
     const isMobile = window.innerWidth < 1024;
     if (isMobile && newsSectionRef.current) {
       newsSectionRef.current.scrollIntoView({
@@ -83,7 +85,7 @@ export default function NewsClient({ data }: { data: News[] }) {
         block: "start",
       });
     }
-  }, [currentPage]);
+  };
 
   return (
     <section
@@ -126,10 +128,10 @@ export default function NewsClient({ data }: { data: News[] }) {
         <div className="mt-12 flex justify-center items-center gap-2">
           {/* Botón Anterior */}
           <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
             disabled={currentPage === 1}
             className="px-3 py-2 rounded-lg border border-primary/20 bg-black/40 text-sm
-            disabled:opacity-30 disabled:pointer-events-none hover:bg-primary/20 transition"
+      disabled:opacity-30 disabled:pointer-events-none hover:bg-primary/20 transition"
           >
             &larr;
           </button>
@@ -138,7 +140,7 @@ export default function NewsClient({ data }: { data: News[] }) {
           {pageNumbers.map((page) => (
             <button
               key={page}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => handlePageChange(page)}
               className={`w-10 h-10 rounded-lg text-sm font-bold transition ${
                 currentPage === page
                   ? "bg-contrast_cyan text-black"
@@ -152,11 +154,11 @@ export default function NewsClient({ data }: { data: News[] }) {
           {/* Botón Siguiente */}
           <button
             onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              handlePageChange(Math.min(currentPage + 1, totalPages))
             }
             disabled={currentPage === totalPages}
             className="px-3 py-2 rounded-lg border border-primary/20 bg-black/40 text-sm
-            disabled:opacity-30 disabled:pointer-events-none hover:bg-primary/20 transition"
+      disabled:opacity-30 disabled:pointer-events-none hover:bg-primary/20 transition"
           >
             &rarr;
           </button>
