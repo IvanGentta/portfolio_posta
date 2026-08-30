@@ -1,37 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mi Portfolio Personal
 
-## Getting Started
+¡Bienvenido/a a mi portfolio personal! Este proyecto reúne mi trabajo, proyectos desarrollados y novedades en un entorno moderno, rápido y totalmente responsive.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack & Tecnologías
+
+Este sitio está construido con un stack de desarrollo web moderno:
+
+- **Framework:** Next.js 15 (usando el App Router y Turbopack).
+- **Biblioteca UI:** React 19
+- **Estilos:** Tailwind CSS v4
+- **Base de Datos & Backend:** Supabase (PostgreSQL + cliente JS para datos en tiempo real de proyectos y noticias).
+- **Internacionalización:** Context personalizado para soporte multilenguaje (ES / EN).
+- **Emailing:** Nodemailerpara el formulario de contacto.
+- **Deploy:** Vercel
+
+---
+
+## Características Principales
+
+- **Single Page Layout (One-Page):** Navegación fluida con scroll automático entre secciones
+- **Sección de Noticias Paginada & Filtrable:**
+- Filtrado dinámico por etiquetas traídas desde Supabase.
+- Paginación _client-side_ rápida y fluida.
+- _UX Mobile:_ Auto-scroll suave al principio de la sección de noticias únicamente al cambiar de página en dispositivos móviles.
+- **Soporte Bilingüe:** Cambio rápido de idioma dinámico vía Context API.
+- **Totalmente Responsive:** Diseñado con enfoque _Mobile First_.
+
+---
+
+## Estructura del Proyecto
+
+```text
+portfolio_posta/
+├── src/
+│   ├── app/                # Rutas principales y layout de Next.js (App Router)
+│   ├── components/         # Componentes UI reutilizables (NavBar, NewsCard, etc.)
+│   ├── context/            # Contextos globales (LanguageContext, etc.)
+│   ├── data/               # Datos estáticos auxiliares (projectsData.ts)
+│   ├── lib/                # Configuración de clientes (supabase.ts, etc.)
+│   └── translations/       # Archivos JSON de idiomas (es.json, en.json)
+├── public/                 # Assets estáticos (imágenes, favicons)
+└── package.json            # Dependencias y scripts del proyecto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# portfolio_posta
+_Gracias por pasarte!!_
